@@ -3,10 +3,10 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Example.findAll({}).then(function(exampledb) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        examples: exampledb
       });
     });
   });
@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.get("/example/:id", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
       res.render("example", {
-        example: dbExample
+        example: exampledb
       });
     });
   });
