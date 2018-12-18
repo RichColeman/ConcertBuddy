@@ -3,11 +3,11 @@
     "username": "sequel",
     "password": "sequel",
     "database": "exampledb",
-    "host": "localhost",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
+    "username": "se",
     "password": null,
     "database": "testdb",
     "host": "localhost",
