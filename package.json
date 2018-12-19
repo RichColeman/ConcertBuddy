@@ -1,6 +1,6 @@
 {
   "name": "concertbuddy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Concert Buddy - Team Project",
   "main": "server.js",
   "scripts": {
