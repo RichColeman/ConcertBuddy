@@ -29,7 +29,7 @@ module.exports = function(app) {
 //IB models and passport for authentication
 module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    res.json("/members");
+    res.json("profile");
   });
 
   app.post("/api/signup", function(req, res) {
