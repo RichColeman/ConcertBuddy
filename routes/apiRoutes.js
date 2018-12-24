@@ -28,13 +28,17 @@ module.exports = function(app) {
 };
 //IB models and passport for authentication
 module.exports = function(app) {
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    res.json("profile");
-  });
+  app.post('/api/login',
+  passport.authenticate('local', { successRedirect: '/api/profile.html',
+                                   failureRedirect: '/api/login',
+                                   failureFlash: true }));
 
   app.post("/api/signup", function(req, res) {
     console.log(req.body);
     db.User.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      zipcode: req.body.zipcode,
       email: req.body.email,
       password: req.body.password
     }).then(function() {
@@ -49,6 +53,11 @@ module.exports = function(app) {
   app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
+  });
+
+  // Route for profile, redirect to login if not logged on
+  app.get("/profile", function(req, res) {
+    res.redirect("/api/login");
   });
 
   app.get("/api/user_data", function(req, res) {
