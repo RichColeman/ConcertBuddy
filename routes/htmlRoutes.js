@@ -28,19 +28,19 @@ module.exports = function(app) {
     // has an account send to members page
     if (req.user) {
       // res.redirect("/members");
-      res.sendFile(path.join(__dirname, "../public/members.html"));
+      res.sendFile(path.join(__dirname, "../public/profile.html"));
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   // adding isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+  app.get("/profile", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/profile.html"));
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
+  // app.get("*", function(req, res) {
+  //   res.render("404");
+  // });
 };
