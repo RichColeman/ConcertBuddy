@@ -1,9 +1,8 @@
 let request = require("request");
 
-let concertArray = [];
-
 module.exports = function(app) {
   app.get("/api/songkick/artist/:artist", function(req, res) {
+    let concertArray = [];
     let URL = `https://api.songkick.com/api/3.0/search/artists.json?apikey=5lteuiQE9y5NzSiJ&query=${
       req.params.artist
     }`;
@@ -44,6 +43,7 @@ module.exports = function(app) {
     });
   });
   app.get("/api/songkick/city/:zip", (req, res) => {
+    let concertArray = [];
     let URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${
       req.params.zip
     }&key=AIzaSyAZuF8mTrMiYKcZ7z_Z8HnPrG201L2kpqY`;
