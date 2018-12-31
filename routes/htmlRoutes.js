@@ -15,7 +15,7 @@ module.exports = function(app) {
     });
   });
 
-  // Load example page and pass in an example by id
+  // this is junk and should be deleted assuming nothing breaks
   app.get("/example/:id", function (req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function (dbExample) {
       res.render("example", {
