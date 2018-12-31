@@ -25,13 +25,15 @@ module.exports = function(app) {
                   venue:
                     jsonData2.resultsPage.results.event[i].venue.displayName,
                   Date: jsonData2.resultsPage.results.event[i].start.date,
-                  Time: jsonData2.resultsPage.results.event[i].start.time,
                   City:
                     jsonData2.resultsPage.results.event[i].venue.metroArea
                       .displayName,
-                  State:
-                    jsonData2.resultsPage.results.event[i].venue.metroArea.state
-                      .displayName
+                  Time:
+                    jsonData2.resultsPage.results.event[i].start.time,
+                  Latitude:
+                    jsonData2.resultsPage.results.event[i].venue.lat,
+                  Longitude:
+                    jsonData2.resultsPage.results.event[i].venue.lng
                 };
                 concertArray.push(concertData);
               }
@@ -68,21 +70,20 @@ module.exports = function(app) {
                   for (let i = 0; i < 5; i++) {
                     let concertData = {
                       artist:
-                        concertResponse.resultsPage.results.event[i]
-                          .performance[0].displayName,
-                      venue:
-                        concertResponse.resultsPage.results.event[i].venue
+                        concertResponse.resultsPage.results.event[i].performance[0]
                           .displayName,
-                      Date:
-                        concertResponse.resultsPage.results.event[i].start.date,
+                      venue:
+                        concertResponse.resultsPage.results.event[i].venue.displayName,
+                      Date: concertResponse.resultsPage.results.event[i].start.date,
+                      City:
+                        concertResponse.resultsPage.results.event[i].venue.metroArea
+                          .displayName,
                       Time:
                         concertResponse.resultsPage.results.event[i].start.time,
-                      City:
-                        concertResponse.resultsPage.results.event[i].venue
-                          .metroArea.displayName,
-                      State:
-                        concertResponse.resultsPage.results.event[i].venue
-                          .metroArea.state.displayName
+                      Latitude:
+                        concertResponse.resultsPage.results.event[i].venue.lat,
+                      Longitude:
+                        concertResponse.resultsPage.results.event[i].venue.lng
                     };
                     concertArray.push(concertData);
                   }
