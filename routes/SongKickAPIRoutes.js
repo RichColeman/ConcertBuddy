@@ -17,7 +17,7 @@ module.exports = function(app) {
             if (jsonData2.resultsPage.totalEntries == 0) {
               res.json("No concerts");
             } else {
-              for (let i = 0; i < 5; i++) {
+              for (let i = 0; i < 15; i++) {
                 let concertData = {
                   artist:
                     jsonData2.resultsPage.results.event[i].performance[0]
@@ -67,7 +67,7 @@ module.exports = function(app) {
                 if (concertResponse.resultsPage.totalEntries == 0) {
                   res.json("No concerts");
                 } else {
-                  for (let i = 0; i < 5; i++) {
+                  for (let i = 0; i < 15; i++) {
                     let concertData = {
                       artist:
                         concertResponse.resultsPage.results.event[i].performance[0]
