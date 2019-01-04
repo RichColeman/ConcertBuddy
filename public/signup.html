@@ -12,6 +12,24 @@
 <!-- Isaac added - this is for testing -->
 
 <body>
+    <header>
+        <div class="first-header-container">
+            <nav class="navbar navbar-light navbar-fixed">
+                <h1>Concert Buddy</h1>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="profile.html">User Profile</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -23,6 +41,19 @@
       <div class="col-md-6 col-md-offset-3">
         <h2>Sign Up Form</h2>
         <form class="signup">
+          <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="firstName" class="form-control" id="first-name-input" placeholder="enter first name">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="lastName" class="form-control" id="last-name-input" placeholder="enter last name">
+          </div>
+          <div class="form-group">
+            <label for="zipcode">Zip Code</label>
+            <input type="zipcode" class="form-control" id="zipcode-input" placeholder="enter zipcode">
+          </div>
+
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
