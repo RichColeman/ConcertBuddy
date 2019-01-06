@@ -33,7 +33,7 @@ app.set("view engine", "handlebars");
 
 require("./routes/htmlRoutes.js")(app);
 require("./routes/PassportAPIroutes.js")(app);
-require("./routes/SongKickAPIroutes.js")(app);
+require("./routes/SongKickAPIRoutes.js")(app);
 
 var syncOptions = { force: false };
 
