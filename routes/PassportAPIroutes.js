@@ -10,7 +10,7 @@ module.exports = function(app) {
 // If the user has valid login credentials, send them to the index page.
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     
-    res.json("/");
+    res.json("/profile");
   });
 
   app.post("/api/signup", function(req, res) {
@@ -37,6 +37,11 @@ module.exports = function(app) {
 
   // Route for profile, redirect to login if not logged on
   app.get("/profile", function(req, res) {
+    res.redirect("/api/login");
+  });
+
+  // Route for buddies, redirect to login if not logged on
+  app.get("/buddies", function(req, res) {
     res.redirect("/api/login");
   });
 

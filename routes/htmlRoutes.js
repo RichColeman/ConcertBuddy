@@ -25,7 +25,7 @@ module.exports = function(app) {
   });
   //ib add
   app.get("/login", function(req, res) {
-    // has an account send to members page
+    // has an account send to profile page
     if (req.user) {
       // res.redirect("/members");
       res.sendFile(path.join(__dirname, "../public/profile.html"));
@@ -34,9 +34,15 @@ module.exports = function(app) {
   });
 
   // adding isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  // If a user who is not logged in tries to access this route they will be redirected to the login page
   app.get("/profile", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/profile.html"));
+  });
+
+  // adding isAuthenticated middleware to this route.
+  // If a user who is not logged in tries to access this route they will be redirected to the login page
+  app.get("/buddies", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/buddies.html"));
   });
 
   // Render 404 page for any unmatched routes
