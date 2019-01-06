@@ -1,6 +1,50 @@
     
     <div id="home">
         <div class="container">
+            <br>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="/photos/edwin-andrade-158050-unsplash.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+    <p>ConcertBuddy lets you connect with other people who share your taste in music.</p>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="/photos/gbarkz-489384-unsplash.jpg" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+    <p>New in town? Friends don't share your music taste? ConcertBuddy is the solution.</p>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="/photos/rachel-lynette-french-609252-unsplash.jpg" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+    <p>Sign up today and find a new ConcertBuddy!</p>
+  </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <br>
+</div>
+            <div class="row">
+                <div class="col-md-12"> 
+                    <h2 class="text-center">Find your concert!</h5>
+                </div>
+
+            </div>
+
             <div class="row">
                 <!---Start of search bar-->
                 <div class="col-12">
@@ -12,54 +56,29 @@
                             <!--end of col-->
                             <div class="col">
                                 <input class="search form-control form-control-lg form-control-borderless" type="search"
-                                    placeholder="Type in Artist or Zip Code">
+                                    placeholder="Type in Artist">
+                            </div>
+                            <div class="col">
+                                <input class="search form-control form-control-lg form-control-borderless" type="search"
+                                    placeholder="Type in Zip Code">
                             </div>
                             <!--end of col-->
                             <div class="col-auto">
-                                <button class="btn btn-lg btn-success submit" type="submit">Search</button>
+                                <button class="btn btn-lg btn-secondary submit" type="submit">Search</button>
                             </div>
                         </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="artist" value="option1">
-                        <label class="form-check-label" for="exampleRadios1">
-                            Search by artist
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="zip" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Search by zip code
-                        </label>
-                    </div>
-                </div>
+         
             </div>
             <!---Tile cards--->
-            <br><br>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card results">
-                        <div class="card-body">
-                            <h5 class="card-title">Riding solo to the show? Find a buddy!</h5>
-                            <p class="card-text">New to the city? Friends don't like your music? Find other people riding solo and get a new ConcertBuddy! </p>
-                            <a href="/signup.html" class="btn btn-success">Sign up now!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-
-    </div>
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+  crossorigin="anonymous"></script>    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script>
         let artistButton = $("#artist");

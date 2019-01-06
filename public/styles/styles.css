@@ -1,3 +1,36 @@
+body{
+  background: whitesmoke;
+}
+
+header{
+  background: #4e606e;
+}
+
+header h1, a{
+  color: whitesmoke;
+}
+
+header a:hover{
+color: #ace9ec;
+}
+
 .list-group-item {
   line-height: 2.5;
 }
+
+.carousel-caption {
+  font-size: 3em;
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: initial;
+}
+
+.submit{
+  color: whitesmoke;
+}
+
+.text-center {
+  color: #4e606e;
+}
+
+.link:hover { color: #00FF00; } /* CSS link hover (green) */
