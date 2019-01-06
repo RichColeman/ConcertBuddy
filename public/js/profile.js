@@ -9,3 +9,5 @@ $(document).ready(function() {
     $(".member-zip").text(data.zipcode);
   });
 });
+
+// TODO rename profile.js to events.js and use this info we're retrieving to display in events.html
