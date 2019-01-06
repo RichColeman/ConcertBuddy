@@ -2,11 +2,15 @@ body{
   background: whitesmoke;
 }
 
-header{
+header, footer{
   background: #4e606e;
 }
 
-header h1, a{
+header h1, a, p{
+  color: whitesmoke;
+}
+
+footer h5, a, p{
   color: whitesmoke;
 }
 
@@ -29,8 +33,10 @@ color: #ace9ec;
   color: whitesmoke;
 }
 
-.text-center {
+.search-title {
   color: #4e606e;
 }
 
-.link:hover { color: #00FF00; } /* CSS link hover (green) */
+.footer-copyright{
+  color: whitesmoke;
+}
