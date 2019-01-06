@@ -10,9 +10,10 @@ module.exports = function(app) {
 // If the user has valid login credentials, send them to the index page.
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     
-    res.json("/profile");
+    res.json("/");
   });
-
+//after a user signs up, call the api/login route above to ensure authentication.  
+//the login route will then take them to the home page
   app.post("/api/signup", function(req, res) {
     console.log(req.body);
     db.User.create({
@@ -29,22 +30,23 @@ module.exports = function(app) {
     });
   });
 
-  // Route for log out
+  // Route for log out.  This will log them out and take them to the home page
   app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
   });
 
-  // Route for profile, redirect to login if not logged on
-  app.get("/profile", function(req, res) {
+  // Route for myevents, redirect to login if not logged on
+  app.get("/myevents", function(req, res) {
     res.redirect("/api/login");
   });
 
-  // Route for buddies, redirect to login if not logged on
-  app.get("/buddies", function(req, res) {
+  // Route for event page when user clicks "I'm going".  redirect to login if not logged on
+  app.get("/event", function(req, res) {
     res.redirect("/api/login");
   });
 
+  //ib - below is being used to check who is logged on
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
       res.json({});
