@@ -5,7 +5,9 @@ $(document).ready(function() {
   $.get("/api/user_data").then(function(data) {
     $(".member-id").text(data.id);
     $(".member-name").text(data.email);
+    console.log(data.email);
     $(".member-fname").text(data.firstName);
+    console.log(data.firstNam);
     $(".member-lname").text(data.lastName);
     $(".member-zip").text(data.zipcode);
   });

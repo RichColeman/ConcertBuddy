@@ -12,30 +12,87 @@
 </head>
 
 <body>
-        <header>
-                <div class="first-header-container">
-                    <nav class="navbar navbar-light navbar-fixed">
-                        <h1>Concert Buddy</h1>
-                        <ul class="nav nav-pills">
-                            <li class="nav-item">
-                                <a class="nav-link " href="/">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="profile.html">User Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="/logout">Log Out</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
+    <header>
+        <div class="first-header-container">
+            <nav class="navbar navbar-light navbar-fixed">
+                <h1>Concert Buddy</h1>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/myevents">My Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/logout">Log Out</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h3>Welcome <span class="member-name"></span></h3>
+            </div>
+        </div>
+    </div>
+    <H3>This page will pop up when a user selects "I'm going" from the list of concerts from the initial search</H3>
+    <!-- TEST START -->
+    <!-- minified snippet to load TalkJS without delaying your page -->
+    <script>
+        (function (t, a, l, k, j, s) {
+            s = a.createElement('script'); s.async = 1; s.src = "https://cdn.talkjs.com/talk.js"; a.head.appendChild(s)
+                ; k = t.Promise; t.Talk = {
+                    v: 1, ready: {
+                        then: function (f) {
+                            if (k) return new k(function (r, e) { l.push([f, r, e]) }); l
+                                .push([f])
+                        }, catch: function () { return k && new k() }, c: l
+                    }
+                };
+        })(window, document, []);
+    </script>
 
+    <!-- container element in which TalkJS will display a chat UI -->
+    <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px"><i>Loading chat...</i></div>
+
+    <!-- TalkJS initialization code, which we'll customize in the next steps -->
+    <script>
+        Talk.ready.then(function () {
+            var me = new Talk.User({
+                id: "1",
+                name: "Isaac User 1",
+                email: "ibayon@enova.com",
+                //photoUrl: "https://demo.talkjs.com/img/alice.jpg",
+                welcomeMessage: "Hello Isaac User 2"
+            });
+            window.talkSession = new Talk.Session({
+                appId: "ankqden1",
+                me: me
+            });
+            var other = new Talk.User({
+                id: "2",
+                name: "Isaac User 2",
+                email: "isaac.bayon@sbcglobal.net",
+                //photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
+                welcomeMessage: "Hello Isaac User 1!!"
+            });
+
+            var conversation = talkSession.getOrCreateConversation(Talk.oneOnOneId(me, other))
+            conversation.setParticipant(me);
+            conversation.setParticipant(other);
+            var inbox = talkSession.createInbox({ selected: conversation });
+            inbox.mount(document.getElementById("talkjs-container"));
+        });
+    </script>
+
+    <!-- TEST END -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZuF8mTrMiYKcZ7z_Z8HnPrG201L2kpqY&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZuF8mTrMiYKcZ7z_Z8HnPrG201L2kpqY&callback=initMap">
     </script>
     <script src="./js/map.js"></script>
+    <script type="text/javascript" src="./js/events.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
