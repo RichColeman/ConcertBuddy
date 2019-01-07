@@ -56,8 +56,8 @@ module.exports = function(app) {
   });
 
   //route user to home page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("index");
-    // res.render("404");
-  });
+  // app.get("*", function(req, res) {
+  //   res.render("index");
+  //   // res.render("404");
+  // });
 };
