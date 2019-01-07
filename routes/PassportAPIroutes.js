@@ -1,5 +1,5 @@
 var db = require("../models");
-let request = require("request");
+//let request = require("request");
 
 //IB Requiring passport
 var passport = require("../config/passport");
@@ -48,6 +48,7 @@ module.exports = function(app) {
 
   //ib - below is being used to check who is logged on
   app.get("/api/user_data", function(req, res) {
+    //if not loged in, send back empty object
     if (!req.user) {
       res.json({});
     }
