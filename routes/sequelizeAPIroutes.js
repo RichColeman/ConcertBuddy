@@ -13,7 +13,8 @@ module.exports = (app) => {
             time: req.body.Time,
             city: req.body.City,
             Latitude: req.body.Latitude,
-            Longitude: req.body.Longitude
+            Longitude: req.body.Longitude,
+            UserId: req.user.id
         }).then(function(dbPost){
             res.json(dbPost);
         })

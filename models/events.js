@@ -36,6 +36,11 @@ module.exports = function(sequelize, DataTypes) {
     Events.hasMany(models.Buddies);
   };
 
+  //creates the UserID foreign key
+  Events.associate = function (models) {
+    Events.belongsTo(models.User);
+};
+
   //many to many between users and events
   Events.associate = function(models) {
     Events.belongsToMany(models.User, { through: models.UserEvents });

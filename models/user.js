@@ -50,11 +50,15 @@ module.exports = function (sequelize, DataTypes) {
   User.associate = function (models) {
     User.hasMany(models.Buddies);
   };
+  User.associate = function (models) {
+    User.hasMany(models.Events);
+  };
+
   //many to many between users and events
   //
-  User.associate = function (models) {
-    User.belongsToMany(models.Events, { through: "UserXEvents" });
-  };
+  // User.associate = function (models) {
+  //   User.belongsToMany(models.Events, { through: "UserXEvents" });
+  // };
 
   return User;
 };
