@@ -34,6 +34,7 @@ app.set("view engine", "handlebars");
 require("./routes/htmlRoutes.js")(app);
 require("./routes/PassportAPIroutes.js")(app);
 require("./routes/SongKickAPIRoutes.js")(app);
+require("./routes/sequelizeAPIroutes.js")(app);
 
 var syncOptions = { force: false };
 

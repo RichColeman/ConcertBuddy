@@ -2,41 +2,29 @@
 // Creating the events model
 module.exports = function(sequelize, DataTypes) {
   var Events = sequelize.define("Events", {
-    // some of these fields may be null cause the api could maybe suck
     artist: {
       type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: "artist unknown"
+      allowNull: false
     },
     venue: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: "venue unknown"
+      type: DataTypes.TEXT,
+      allowNull: false
     },
     date: {
-      type: DataTypes.STRING,
-      allowNull: true
+      type: DataTypes.STRING
+    },
+    time: {
+      type: DataTypes.TEXT
     },
     city: {
-      type: DataTypes.STRING,
-      allowNull: true
+      type: DataTypes.TEXT,
+      allowNull: false
     },
-    //removing state for now
-    // state: {
-    //     type: DataTypes.STRING,
-    //     allowNull: true
-    // },
-    time: {
-      type: DataTypes.STRING,
-      allowNull: true
+    Latitude: {
+      type: DataTypes.DECIMAL(10, 4)
     },
-    latitude: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    longitute: {
-      type: DataTypes.INTEGER,
-      allowNull: true
+    Longitude: {
+      type: DataTypes.DECIMAL(10, 4)
     }
   });
 

@@ -57,7 +57,6 @@ module.exports = function(app) {
 
   //route user to home page for any unmatched routes
   // app.get("*", function(req, res) {
-  //   //index pahe is a handlebar.  only handlebar we are using
   //   res.render("index");
   //   // res.render("404");
   // });
