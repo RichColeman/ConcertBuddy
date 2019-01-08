@@ -29,8 +29,19 @@ module.exports = (app) => {
                     userId: req.user.id,
                     eventId: dbPost.dataValues.id
                 }
+            }).then(function(events){
+                if (!events) {
+                    console.log(dbPost.dataValues.id);
+                    db.UserEvents.create({
+                        userId: req.user.id,
+                        eventId: dbPost.dataValues.id
+                    }).then(function(event) {
+                        
+                        
+                    })
+                }
             })
-            res.json(dbPost);        
+            res.json(dbPost);
         })
     }
     })
