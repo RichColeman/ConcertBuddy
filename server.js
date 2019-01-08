@@ -49,12 +49,13 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 //listener for the chat app
-// listen on the connection event for incoming sockets, and I log it to the console.
-io.on('connection', function (socket) {
-  socket.on('chat message', function (msg) {
-    io.emit('chat message', msg);
+// listen on the connection event for incoming sockets
+io.on("connection", function (socket) {
+  socket.on("chat message", function (msg) {
+    io.emit("chat message", msg);
   });
 });
+
 // Starting the server, syncing our models ------------------------------------/
 //http.listen is for socket.io to listen on
 db.sequelize.sync(syncOptions).then(function () {
@@ -65,15 +66,6 @@ db.sequelize.sync(syncOptions).then(function () {
       PORT
     );
   });
-
-  
-  // io
-  io.on('connection', function (socket) {
-    socket.on('chat message', function (msg) {
-      io.emit('chat message', msg);
-    });
-  });
-
 });
 
 module.exports = app;
