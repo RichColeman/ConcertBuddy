@@ -2,15 +2,17 @@ require("dotenv").config();
 var express = require("express");
 var session = require("express-session");
 var exphbs = require("express-handlebars");
-//for Socket.IO
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
 var db = require("./models");
 // ib requiring passport
 var passport = require("./config/passport");
 var app = express();
+//for Socket.IO
+var http = require('http').Server(app);
+// initialize a new instance of socket.io by passing the http object
+var io = require('socket.io')(http);
 var PORT = process.env.PORT || 3000;
+
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -47,6 +49,7 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 //listener for the chat app
+// listen on the connection event for incoming sockets, and I log it to the console.
 io.on('connection', function(socket){
   console.log('a user connected');
 });
