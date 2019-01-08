@@ -14,16 +14,16 @@ function concertRows() {
 function createNewRow(concert) {
   let newInputRow = $(
     [
-      "<li class='list-group-item concert-item'>",
-      "<span>",
-      concert.artist,
-      concert.venue,
-      concert.Date,
-      concert.City,
-      concert.Time,
-      "</span>",
+      // "<li class='list-group-item concert-item'>",
+      // "<span>",
+      `<li> ${concert.artist}</li>`,
+      `<li> ${concert.venue}</li>`,
+      `<li> ${concert.Date}</li>`,
+      `<li> ${concert.City}</li>`,
+      // `<li> ${concert.Time}</li>`,
+      // "</span>",
       "<input type='text' class='edit' style='display: none;'>",
-      "<button class='attend btn btn-primary'>Attend</button>",
+      "<button class='attend btn btn-secondary'>Attend</button>",
       "</li>"
     ].join("")
   );
