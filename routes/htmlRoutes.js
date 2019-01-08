@@ -45,7 +45,7 @@ module.exports = function(app) {
   // adding isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the login page
   // if user is authenticated, user will be routed to the event.html page
-  app.get("/events", isAuthenticated, function(req, res) {
+  app.get("/events/:eventId", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/event.html"));
   });
 

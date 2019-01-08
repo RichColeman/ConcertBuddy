@@ -2,7 +2,14 @@ let db = require("../models");
 
 module.exports = (app) => {
     app.post("/api/events", (req, res) => {
-        console.log("good");
+        db.Events.findOne({
+            where: {
+                artist: req.body.artist,
+                date: req.body.Date,
+                time: req.body.Time
+            }
+        }).then(function(events) {
+        if (!events) {
         console.log(req.body);
         console.log(req.body.Longitude);
         console.log(req.body.Latitude);
@@ -13,10 +20,19 @@ module.exports = (app) => {
             time: req.body.Time,
             city: req.body.City,
             Latitude: req.body.Latitude,
-            Longitude: req.body.Longitude,
-            UserId: req.user.id
+            Longitude: req.body.Longitude
         }).then(function(dbPost){
-            res.json(dbPost);
+            console.log(dbPost);
+            console.log(req.user.id);
+            db.UserEvents.findOne({
+                where: {
+                    userId: req.user.id,
+                    eventId: dbPost.dataValues.id
+                }
+            })
+            res.json(dbPost);        
         })
+    }
     })
+})
 }
