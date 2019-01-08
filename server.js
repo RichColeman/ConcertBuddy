@@ -2,6 +2,9 @@ require("dotenv").config();
 var express = require("express");
 var session = require("express-session");
 var exphbs = require("express-handlebars");
+//for Socket.IO
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 var db = require("./models");
 // ib requiring passport
@@ -43,7 +46,10 @@ var syncOptions = { force: false };
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
-
+//listener for the chat app
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
