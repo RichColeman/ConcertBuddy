@@ -28,22 +28,18 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Events.associate = function(models) {
-    Events.belongsTo("UserXEvents");
-  };
+    // Events.associate = function (models) {
+    //     Events.belongsTo("UserXEvents");
+    // };
 
-  Events.associate = function(models) {
-    Events.hasMany(models.Buddies);
-  };
+    // Events.associate = function (models) {
+    //     Events.hasMany(models.Buddies);
+    // };
 
-  //creates the UserID foreign key
-  Events.associate = function (models) {
-    Events.belongsTo(models.User);
-};
-
-  //many to many between users and events
-  Events.associate = function(models) {
-    Events.belongsToMany(models.User, { through: models.UserEvents });
-  };
-  return Events;
+    // //many to many between users and events
+    // Events.associate = function(models) {
+    
+    //       Events.belongsToMany(models.User, { through: models.UserEvents });
+    //     };
+    return Events;
 };

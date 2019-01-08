@@ -7,14 +7,14 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
     
-    Buddies.associate = function (models) {
-        Buddies.hasMany(models.Events);
-    };
+    // Buddies.associate = function (models) {
+    //     Buddies.hasMany(models.Events);
+    // };
 
-    //creates the UserID foreign key
-    Buddies.associate = function (models) {
-        Buddies.belongsTo(models.User);
-    };
+    // //creates the UserID foreign key
+    // Buddies.associate = function (models) {
+    //     Buddies.belongsTo(models.User);
+    // };
 
     
     return Buddies;

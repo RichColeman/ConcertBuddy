@@ -43,7 +43,12 @@ function attendEvent(concert) {
     method: "POST",
     url: "/api/events",
     data: concert
-  }).then(console.log("success"));
+  }).then((event) =>{
+    console.log(event);
+    let eventid = event.id;
+    console.log(eventid);
+    window.location.href = "/events/" + eventid;
+  });
 }
 
 $(".bandSearch").on("click", function(event) {
