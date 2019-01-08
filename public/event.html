@@ -50,16 +50,36 @@
             </div>
         </div>
     </div>
-    <H3>This page will pop up when a user selects "I'm going" from the list of concerts from the initial search</H3>
+    <H4>This page will pop up when a user selects "I'm going" from the list of concerts from the initial search</H4>
     <!-- code for the chat form START -->
     <ul id="messages"></ul>
     <form action="">
         <input id="m" autocomplete="off" /><button>Send</button>
     </form>
+    <!-- <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script> -->
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://localhost:3000');
+    </script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            var socket = io();
+            $('form').submit(function () {
+                socket.emit('chat message', $('#m').val());
+                $('#m').val('');
+                return false;
+            });
+            socket.on('chat message', function (msg) {
+                $('#messages').append($('<li>').text(msg));
+                window.scrollTo(0, document.body.scrollHeight);
+            });
+        });
+    </script>
     <!-- code for the chat form END -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
-   <!-- IB - I need below version due to error in event.js.  1.8.19 -->
+    <!-- IB - I need below version due to error in event.js.  1.8.19 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZuF8mTrMiYKcZ7z_Z8HnPrG201L2kpqY&callback=initMap">
     </script>
@@ -67,12 +87,6 @@
     <script type="text/javascript" src="/js/events.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<!-- scripts for the socket.io chat -->
-    <!-- <script src="/socket.io/socket.io.js"></script> -->
-    <!-- <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script> -->
-    <!-- <script>
-        var socket = io();
-    </script> -->
 </body>
 
 </html>

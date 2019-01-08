@@ -50,18 +50,30 @@ if (process.env.NODE_ENV === "test") {
 }
 //listener for the chat app
 // listen on the connection event for incoming sockets, and I log it to the console.
-io.on('connection', function(socket){
-  console.log('a user connected');
+io.on('connection', function (socket) {
+  socket.on('chat message', function (msg) {
+    io.emit('chat message', msg);
+  });
 });
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+//http.listen is for socket.io to listen on
+db.sequelize.sync(syncOptions).then(function () {
+  app.listen, http.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
       PORT
     );
   });
+
+  
+  // io
+  io.on('connection', function (socket) {
+    socket.on('chat message', function (msg) {
+      io.emit('chat message', msg);
+    });
+  });
+
 });
 
 module.exports = app;

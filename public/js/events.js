@@ -4,6 +4,10 @@ $(document).ready(function() {
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
     $(".member-fname").text(data.firstName);
+    //in case we want to show these in the future
+    // $(".member-id").text(data.id);
+    // $(".member-lname").text(data.lastName);
+    // $(".member-zip").text(data.zipcode);
   });
 });
 // $(document).ready(function() {
