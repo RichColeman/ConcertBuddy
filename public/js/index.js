@@ -1,11 +1,9 @@
 let concerts = [];
 
 function concertRows() {
-  console.log("success")
   $(".eventWall").empty();
   $(".loading").html(`<h2>Loading Concerts...</h2>`)
   let rowsToAdd = [];
-  console.log(concerts)
   for (let i = 0; i < concerts.length; i++) {
     rowsToAdd.push(createNewRow(concerts[i]));
   }
@@ -45,9 +43,7 @@ function attendEvent(concert) {
     url: "/api/events",
     data: concert
   }).then((event) => {
-    console.log(event);
     let eventid = event.id;
-    console.log(eventid);
     window.location.href = "/events/" + eventid;
   });
 }
@@ -55,25 +51,17 @@ function attendEvent(concert) {
 $(".bandSearch").on("click", function (event) {
   if ($("#Artist").is(":checked")) {
     event.preventDefault();
-    console.log("hi")
     let artistSearch = $("#bandInput").val().trim();
-    console.log(artistSearch);
     $.get(`/api/songkick/artist/${artistSearch}`, function (data) {
-      console.log(data);
       concerts = data;
-      console.log(concerts)
       concertRows();
     });
   }
   if ($("#Zip").is(":checked")) {
     event.preventDefault();
-    console.log("hi")
     let zipSearch = $("#bandInput").val().trim();
-    console.log(zipSearch);
     $.get(`/api/songkick/city/${zipSearch}`, function (data) {
-      console.log(data);
       concerts = data;
-      console.log(concerts)
       concertRows();
     })
   }

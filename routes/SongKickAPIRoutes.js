@@ -15,7 +15,7 @@ module.exports = function(app) {
           if (!error && response.statusCode === 200) {
             let jsonData2 = JSON.parse(body);
             if (jsonData2.resultsPage.totalEntries == 0) {
-              res.json("No concerts");
+              return
             } else {
               for (let i = 0; i < 15; i++) {
                 let concertData = {
@@ -41,7 +41,7 @@ module.exports = function(app) {
             }
           }
         });
-      }
+      } 
     });
   });
   app.get("/api/songkick/city/:zip", (req, res) => {
@@ -65,7 +65,7 @@ module.exports = function(app) {
               if (!error && response.statusCode === 200) {
                 let concertResponse = JSON.parse(body);
                 if (concertResponse.resultsPage.totalEntries == 0) {
-                  res.json("No concerts");
+                  return
                 } else {
                   for (let i = 0; i < 15; i++) {
                     let concertData = {
@@ -91,7 +91,7 @@ module.exports = function(app) {
                 }
               }
             });
-          }
+          } 
         });
       }
     });

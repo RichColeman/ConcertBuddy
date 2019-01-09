@@ -1,7 +1,6 @@
 $(document).ready(function() {
   $.get("/api/user_data").then(function(data) {
     $.get("/api/myevents/" + data.id).then(function(event) {
-      console.log(event);
       $(".eventWall").empty();
       let rowsToAdd = [];
       for (let i = 0; i < event.length; i++) {
@@ -35,6 +34,5 @@ function createNewRow(concert) {
 $(document).on("click", "button.event", function() {
     event.stopPropagation();
   let concertId = $(this).data("info");
-  console.log(concertId);
   window.location.href = "/events/" + concertId.id;
 });

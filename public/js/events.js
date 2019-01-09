@@ -22,10 +22,7 @@ $(document).ready(function () {
         let userDiv = $("<div>");
         userDiv.html(`<h3> ${user} is going.</h3>`)
         $(".users").append(userDiv);
-     
       });
-      let elem = document.getElementsByClassName("users");
-      elem.scrollIntoView(false)
     })
   };
 
@@ -33,7 +30,6 @@ $(document).ready(function () {
     let url = window.location.href;
     let eventId = url.split("events/")[1];
     $.get(`/api/events/${eventId}`, function (concert) {
-      console.log(concert);
       let concertDiv = $("<div>");
       let headlineDiv = $("<div>");
       let modalDiv = $("<h5>");
@@ -55,7 +51,7 @@ $(document).ready(function () {
       };
 
       var map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 10,
+        zoom: 12,
         styles: [
           {
             "elementType": "geometry",
@@ -216,8 +212,7 @@ $(document).ready(function () {
             ]
           }
         ],
-        center: myLatLng,
-        disableDefaultUI: true
+        center: myLatLng
       });
 
       var marker = new google.maps.Marker({
@@ -232,16 +227,3 @@ $(document).ready(function () {
   eventAttendees();
   eventInfo();
 });
-// $(document).ready(function() {
-//   // This file just does a GET request to figure out which user is logged in
-//   // and updates the HTML on the page
-//   $.get("/api/user_data").then(function(data) {
-//     $(".member-id").text(data.id);
-//     $(".member-name").text(data.email);
-//     console.log(data.email);
-//     $(".member-fname").text(data.firstName);
-//     console.log(data.firstNam);
-//     $(".member-lname").text(data.lastName);
-//     $(".member-zip").text(data.zipcode);
-//   });
-// });
