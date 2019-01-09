@@ -16,14 +16,12 @@ module.exports = app => {
 
   app.get("/api/attendees/:eventId", (req, res) => {
     let concertid = req.params.eventId;
-    console.log(concertid);
     db.UserEvents.findAll({
       where: {
         eventId: concertid
       }
     }).then(function(event) {
       let users = event.map(userevent => +userevent.dataValues.userId);
-      console.log(users);
         db.User.findAll({
           where: {
             id: {
@@ -31,11 +29,31 @@ module.exports = app => {
             }
           }
         }).then(function(people) {
-          console.log(people);
           res.json(people);
         })
     });
   });
+
+  app.get("/api/myevents/:userId", (req, res) => {
+    let userid = req.params.userId;
+    db.UserEvents.findAll({
+      where: {
+        userId: userid
+      }
+    }).then(function(event) {
+      let events = event.map(userevent => +userevent.dataValues.eventId);
+        db.Events.findAll({
+          where: {
+            id: {
+              [Op.in]: events
+            }
+          }
+        }).then(function(events) {
+          res.json(events);
+        })
+    });
+  });
+
   app.post("/api/events", (req, res) => {
     db.Events.findOne({
       where: {
