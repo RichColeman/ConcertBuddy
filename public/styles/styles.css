@@ -25,10 +25,7 @@ body{
   color: pink;
 }
 
-.cta:hover img{
-  opacity: 0.8;
-  transition: 150ms;
-}
+
 
 header, footer{
   background: #4e606e;
