@@ -21,10 +21,6 @@ body{
   font-size: .75em;
 }
 
-
-
-
-
 header, footer{
   background: #4e606e;
 }
@@ -54,6 +50,13 @@ color: #ace9ec;
 
 .search-text {
   font-size: 2em;
+  top: 33%;
+  transform: translateY(-50%);
+  bottom: initial;
+}
+
+.myEvents {
+  font-size: 1em;
   top: 33%;
   transform: translateY(-50%);
   bottom: initial;
