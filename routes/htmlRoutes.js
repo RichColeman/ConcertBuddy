@@ -19,7 +19,8 @@ module.exports = function(app) {
     // has an account send to myevents
     if (req.user) {
       
-      res.sendFile(path.join(__dirname, "../public/myevents.html"));
+      // res.sendFile(path.join(__dirname, "../public/myevents.html"));
+      res.sendFile(path.join(__dirname, "../public/home.html"));
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
