@@ -11,14 +11,14 @@ body{
 
 .logo{
   font-family: 'Major Mono Display', monospace;
-  color: #4e606e;
-  font-size: 5em;
+  color:whitesmoke;
+  font-size: 1.5em;
 }
 
 .hero-text{
   font-family: 'Major Mono Display', monospace;
-  color: #4e606e;
-  font-size: 2em;
+  color: whitesmoke;
+  font-size: .75em;
 }
 
 .hero-image{
@@ -52,7 +52,7 @@ color: #ace9ec;
 
 .cta-text {
   font-size: 5em;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   bottom: initial;
 }
@@ -84,9 +84,19 @@ color: #ace9ec;
 
 }
 
-.or-text{
+.or-text {
   color: #29333a;
 }
+
+.or-text a{
+  color: #29333a;
+}
+
+/* .cta-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+} */
 
 /* .eventWall .card-body, p{
   color: #29333a;
