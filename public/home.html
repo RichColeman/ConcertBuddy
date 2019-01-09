@@ -90,8 +90,11 @@
 
             for (let item of anchorlinks) { // relitere 
                 item.addEventListener('click', (e) => {
+                    console.log(item);
                     let hashval = item.getAttribute('href')
+                    console.log(hashval);
                     let target = document.querySelector(hashval)
+                    console.log(target);
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -100,6 +103,18 @@
                     e.preventDefault()
                 })
             }
+
+            $(document).keypress(function(e) {
+                if (e.which == 13) {
+                 let target = document.querySelector("#results")
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    })
+                    history.pushState(null, null, "#results")
+                    e.preventDefault()
+                 }
+             })
         </script>
 
 </body>
