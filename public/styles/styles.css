@@ -21,9 +21,7 @@ body{
   font-size: .75em;
 }
 
-.hero-image{
-  color: pink;
-}
+
 
 
 
@@ -88,13 +86,3 @@ color: #ace9ec;
 .or-text a{
   color: #29333a;
 }
-
-/* .cta-button{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-} */
-
-/* .eventWall .card-body, p{
-  color: #29333a;
-} */
