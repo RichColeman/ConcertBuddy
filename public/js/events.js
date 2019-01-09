@@ -23,6 +23,7 @@ $(document).ready(function() {
     let eventId = url.split("events/")[1];
     $.get(`/api/events/${eventId}`, function(data) {
       console.log(data);
+      initMap(data.Latitude, data.Longitude)
   })
 
   function initMap(latitude, longitude) {
