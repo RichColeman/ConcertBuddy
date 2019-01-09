@@ -9,8 +9,8 @@ module.exports = function(app) {
 // Using the passport.authenticate middleware with our local strategy.
 // If the user has valid login credentials, send them to the index page.
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    
-    res.json("/");
+    //res.redirect("/home");
+    res.json("/home");
   });
 //after a user signs up, call the api/login route above to ensure authentication.  
 //the login route will then take them to the home page
@@ -23,7 +23,7 @@ module.exports = function(app) {
       email: req.body.email,
       password: req.body.password
     }).then(function() {
-      res.redirect(307, "/api/login");
+      res.redirect(307, "/api/login"); //this calls the login post above, which routes a signed in user to home.html
     }).catch(function(err) {
       console.log(err);
       res.json(err);

@@ -14,20 +14,11 @@ module.exports = function(app) {
       });
     // });
   });
-
-  // this is junk and should be deleted assuming nothing breaks
-  // app.get("/example/:id", function (req, res) {
-  //   db.Example.findOne({ where: { id: req.params.id } }).then(function (dbExample) {
-  //     res.render("example", {
-  //       example: exampledb
-  //     });
-  //   });
-  // });
   //ib add
   app.get("/login", function(req, res) {
     // has an account send to myevents
     if (req.user) {
-      // res.redirect("/members");
+      
       res.sendFile(path.join(__dirname, "../public/myevents.html"));
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
@@ -36,8 +27,7 @@ module.exports = function(app) {
   app.get("/signup", function(req, res) {
     // has an account send to myevents page
     if (req.user) {
-      // res.redirect("/members");
-      res.sendFile(path.join(__dirname, "../public/myevents.html"));
+      res.sendFile(path.join(__dirname, "../public/home.html"));
     }
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
@@ -53,6 +43,10 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the login page
   app.get("/myevents", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/myevents.html"));
+  });
+
+  app.get("/home", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/home.html"));
   });
 
   //route user to home page for any unmatched routes
