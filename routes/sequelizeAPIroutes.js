@@ -1,6 +1,29 @@
 let db = require("../models");
 
 module.exports = app => {
+  app.get("/api/events/:eventId", (req, res) => {
+    let concertid = req.params.eventId;
+    db.Events.findOne({
+      where: {
+        id: concertid
+      }
+    }).then(function(event) {
+      res.json(event);
+    });
+  });
+
+  app.get("/api/attendees/:eventId", (req, res) => {
+    let concertid = req.params.eventId;
+    console.log(concertid);
+    db.UserEvents.findAll({
+      where: {
+        eventId: concertid
+      }
+    }).then(function(event) {
+      let users = event.map(userevent => +userevent.dataValues.userId);
+      res.json(users);
+    });
+  });
   app.post("/api/events", (req, res) => {
     db.Events.findOne({
       where: {
@@ -20,9 +43,8 @@ module.exports = app => {
           Longitude: req.body.Longitude
         }).then(function(dbPost) {
           db.UserEvents.create({
-              userId: req.user.id,
-              eventId: dbPost.dataValues.id
-            
+            userId: req.user.id,
+            eventId: dbPost.dataValues.id
           }).then(function(events) {
             res.status(200).end();
           });
@@ -40,7 +62,6 @@ module.exports = app => {
               userId: req.user.id,
               eventId: events.dataValues.id
             }).then(function(response) {
-              console.log(events);
               res.json(events);
             });
           } else {
@@ -52,3 +73,9 @@ module.exports = app => {
     });
   });
 };
+
+
+
+
+
+
