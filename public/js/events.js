@@ -36,7 +36,7 @@ $(document).ready(function () {
       modalDiv.addClass("modal-title");
       concertDiv.html(`<h3> ${concert.artist} is playing at the ${concert.venue} in ${concert.city}. Check out who's going then head to the chat. </h3>`)
       $(".concert-data").append(concertDiv);
-      headlineDiv.html(`<h2>Congrats, <span class="member-fname"></span>. <br> You're one step closer to finding your
+      headlineDiv.html(`You're one step closer to finding your
       ConcertBuddy for the ${concert.artist} show.</h2><br><br>`);
       $(".headline").append(headlineDiv);
       modalDiv.html(`Chat for ${concert.artist} at ${concert.venue}</h5>`);
