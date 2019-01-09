@@ -89,3 +89,8 @@ color: #ace9ec;
 .or-text a{
   color: #29333a;
 }
+
+#map {
+  height: 250px;
+  width: auto;
+}
