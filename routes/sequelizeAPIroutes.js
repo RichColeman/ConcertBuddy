@@ -1,4 +1,6 @@
 let db = require("../models");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 module.exports = app => {
   app.get("/api/events/:eventId", (req, res) => {
@@ -21,7 +23,17 @@ module.exports = app => {
       }
     }).then(function(event) {
       let users = event.map(userevent => +userevent.dataValues.userId);
-      res.json(users);
+      console.log(users);
+        db.User.findAll({
+          where: {
+            id: {
+              [Op.in]: users
+            }
+          }
+        }).then(function(people) {
+          console.log(people);
+          res.json(people);
+        })
     });
   });
   app.post("/api/events", (req, res) => {
