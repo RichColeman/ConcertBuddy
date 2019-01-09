@@ -13,7 +13,11 @@
     <header>
         <div class="first-header-container">
             <nav class="navbar navbar-light navbar-fixed">
+<<<<<<< HEAD
                 <h1 class="logo-nav">ConcertBuddy</h1>
+=======
+                    <h1 class="logo-nav">ConcertBuddy</h1>
+>>>>>>> 52107cbf3a51aceebd0528304781d231e799d635
                 <ul class="nav nav-pills">
                     <li class="nav-item">
                         <a class="nav-link logo-nav" href="/home">home</a>
@@ -88,8 +92,11 @@
 
             for (let item of anchorlinks) { // relitere 
                 item.addEventListener('click', (e) => {
+                    console.log(item);
                     let hashval = item.getAttribute('href')
+                    console.log(hashval);
                     let target = document.querySelector(hashval)
+                    console.log(target);
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -98,6 +105,18 @@
                     e.preventDefault()
                 })
             }
+
+            $(document).keypress(function(e) {
+                if (e.which == 13) {
+                 let target = document.querySelector("#results")
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    })
+                    history.pushState(null, null, "#results")
+                    e.preventDefault()
+                 }
+             })
         </script>
 
 </body>
