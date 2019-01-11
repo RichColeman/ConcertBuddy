@@ -7,7 +7,12 @@ var db = require("./models");
 // ib requiring passport
 var passport = require("./config/passport");
 var app = express();
+//for Socket.IO
+var http = require('http').Server(app);
+// initialize a new instance of socket.io by passing the http object
+var io = require('socket.io')(http);
 var PORT = process.env.PORT || 3000;
+
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -28,8 +33,11 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+
+require("./routes/htmlRoutes.js")(app);
+require("./routes/PassportAPIroutes.js")(app);
+require("./routes/SongKickAPIRoutes.js")(app);
+require("./routes/sequelizeAPIroutes.js")(app);
 
 var syncOptions = { force: false };
 
@@ -38,10 +46,18 @@ var syncOptions = { force: false };
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
+//listener for the chat app
+// listen on the connection event for incoming sockets
+io.on("connection", function (socket) {
+  socket.on("chat message", function (msg) {
+    io.emit("chat message", msg);
+  });
+});
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+//http.listen is for socket.io to listen on
+db.sequelize.sync(syncOptions).then(function () {
+  app.listen, http.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,

@@ -1,3 +1,96 @@
+body{
+  background: whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #29333a;
+}
+
+.logo-nav{
+  font-family: 'Major Mono Display', monospace;
+  color: whitesmoke;
+}
+
+.logo{
+  font-family: 'Major Mono Display', monospace;
+  color:whitesmoke;
+  font-size: 1.5em;
+}
+
+.hero-text{
+  font-family: 'Major Mono Display', monospace;
+  color: whitesmoke;
+  font-size: .75em;
+}
+
+header, footer{
+  background: #4e606e;
+}
+
+header h1, a, p{
+  color: whitesmoke;
+}
+
+footer h5, a, p{
+  color: whitesmoke;
+}
+
+header a:hover{
+color: #ace9ec;
+}
+
 .list-group-item {
   line-height: 2.5;
+}
+
+.cta-text {
+  font-size: 5em;
+  top: 45%;
+  transform: translateY(-50%);
+  bottom: initial;
+}
+
+.search-text {
+  font-size: 2em;
+  top: 33%;
+  transform: translateY(-50%);
+  bottom: initial;
+}
+
+.myEvents {
+  font-size: 1em;
+  top: 33%;
+  transform: translateY(-50%);
+  bottom: initial;
+}
+
+.submit{
+  color: whitesmoke;
+}
+
+.search-title {
+  color: #4e606e;
+}
+
+.footer-copyright{
+  color: whitesmoke;
+}
+
+.eventWall{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+
+.or-text {
+  color: #29333a;
+}
+
+.or-text a{
+  color: #29333a;
+}
+
+#map {
+  height: 250px;
+  width: auto;
 }
