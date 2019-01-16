@@ -1,22 +1,16 @@
-require("dotenv").config();
-
-let keys = require("../keys");
-
 let request = require("request");
-let kick = keys.secrets.song
-let map = keys.secrets.map
 //adding a generic comment
 module.exports = function(app) {
   app.get("/api/songkick/artist/:artist", function(req, res) {
     let concertArray = [];
-    let URL = `https://api.songkick.com/api/3.0/search/artists.json?apikey=${kick}&query=${
+    let URL = `https://api.songkick.com/api/3.0/search/artists.json?apikey=5lteuiQE9y5NzSiJ&query=${
       req.params.artist
     }`;
     request(URL, (error, response, body) => {
       if (!error && response.statusCode === 200) {
         let jsonData = JSON.parse(body);
         let artistID = jsonData.resultsPage.results.artist[0].id;
-        let URL2 = `https://api.songkick.com/api/3.0/artists/${artistID}/calendar.json?apikey=${kick}`;
+        let URL2 = `https://api.songkick.com/api/3.0/artists/${artistID}/calendar.json?apikey=5lteuiQE9y5NzSiJ`;
         request(URL2, (error, response, body) => {
           if (!error && response.statusCode === 200) {
             let jsonData2 = JSON.parse(body);
@@ -54,19 +48,19 @@ module.exports = function(app) {
     let concertArray = [];
     let URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${
       req.params.zip
-    }&key=${map}`;
+    }&key=AIzaSyAZuF8mTrMiYKcZ7z_Z8HnPrG201L2kpqY`;
     request(URL, (error, response, body) => {
       if (!error && response.statusCode === 200) {
         let googleMaps = JSON.parse(body);
         let lat = +googleMaps.results[0].geometry.location.lat;
         let lng = +googleMaps.results[0].geometry.location.lng;
-        let URL2 = `https://api.songkick.com/api/3.0/search/locations.json?location=geo:${lat},${lng}&apikey=${kick}`;
+        let URL2 = `https://api.songkick.com/api/3.0/search/locations.json?location=geo:${lat},${lng}&apikey=5lteuiQE9y5NzSiJ`;
         request(URL2, (error, response, body) => {
           if (!error && response.statusCode === 200) {
             let geoLocation = JSON.parse(body);
             let metroID =
               geoLocation.resultsPage.results.location[0].metroArea.id;
-            let URL3 = `https://api.songkick.com/api/3.0/metro_areas/${metroID}/calendar.json?apikey=${kick}`;
+            let URL3 = `https://api.songkick.com/api/3.0/metro_areas/${metroID}/calendar.json?apikey=5lteuiQE9y5NzSiJ`;
             request(URL3, (error, response, body) => {
               if (!error && response.statusCode === 200) {
                 let concertResponse = JSON.parse(body);
