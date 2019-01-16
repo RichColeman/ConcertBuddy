@@ -17,5 +17,5 @@ Bootstrap, CSS, HTML
 
 ## Want to help?
 
-If you have ideas on improvements or bugs, please utilize the issues tab to post, or feel free to do a pull request!
+If you have ideas on improvements or bugs, please utilize the issues tab to post, or feel free to do a pull request!  We have some cool features planned for 2.0 so come back and check it out!
 
